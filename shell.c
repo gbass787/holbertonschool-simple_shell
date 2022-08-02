@@ -9,14 +9,17 @@ int main(int ac, char **av, char **env)
 	(void)env;
 	(void)ac;
 	(void)av;
+	(void)str;
+
+	do{
 
 	printf("$");
 
 	getline(&lineptr, &n, stdin);
-	printf("lineptr, %s\n", lineptr);
 
 	str = split_line(lineptr);
 
+	}while (1);
 
 	return (1);
 }
