@@ -7,6 +7,8 @@
 #include <string.h>
 #include <unistd.h>
 
+char **split_line(char *lineptr);
+
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
