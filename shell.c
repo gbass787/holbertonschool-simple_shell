@@ -6,7 +6,6 @@
  * @env: unused
  * Return: 1
  */
-
 int main(int ac, char **av, char **env)
 {
 	char *lineptr = NULL;
@@ -15,15 +14,16 @@ int main(int ac, char **av, char **env)
 	pid_t child_pid;
 	int status;
 
-	(void)env;
 	(void)ac;
 	(void)av;
-	(void)str;
 
-	while (1){
-		printf("$");
+	while (1)
+	{
+		if (isatty(0))
+			printf("$");
 
-		getline(&lineptr, &n, stdin);
+		if (getline(&lineptr, &n, stdin) == -1)
+			break;
 
 		if (_strcmp(lineptr, "exit\n") == 0)
 		{
@@ -32,21 +32,22 @@ int main(int ac, char **av, char **env)
 		}
 		str = split_line(lineptr);
 
-		if( str[0] != NULL){
+		if (str[0] != NULL)
+		{
 			child_pid = fork();
 			if (child_pid != 0)
 			{
-				wait (&status);
+				wait(&status);
 				free(str);
 			}
 			else
 			{
 				execve(str[0], str, env);
-				return(0);
+				return (0);
 			}
 		}
 	}
 	free(str);
 	free(lineptr);
-	return (1);
+	return (0);
 }
