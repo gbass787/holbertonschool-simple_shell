@@ -20,6 +20,21 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
+ * _strlen - returns the len of a str
+ * @s: str
+ * Return: 0
+ */
+
+int _strlen(char *s)
+{
+	int i = 0;
+
+	for (i = 0; s[i]; i++)
+		;
+	return (i);
+}
+
+/**
  * _strcat - concatenates two strings
  * @dest: str dest
  * @src: str source
