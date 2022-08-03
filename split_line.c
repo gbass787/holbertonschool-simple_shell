@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-*split_line-
-*lineptr: 
+*split_line- split string in to tokens
+*lineptr: input
 *Return: str, needs to be free
 */
 
@@ -12,7 +12,7 @@ char **split_line(char *lineptr)
 	int capacity =  25;
 	char **str = malloc(capacity * sizeof(char*));
 
-    	char *delim = " ";
+	char *delim =" \n\t\r:";
 
 	str[num] = strtok(lineptr, delim);
 
@@ -24,10 +24,10 @@ char **split_line(char *lineptr)
 	return (str);
 }
 
-/**
+/*
 int main (void)
 {
-	char lineptr[] = "one two three";
+	char lineptr[] = "/bin/ls -l two:t three \n";
 	char **str;
 
 	str = split_line(lineptr);
