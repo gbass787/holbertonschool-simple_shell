@@ -13,7 +13,7 @@ int main(int ac, char **av, char **env)
 	char **str;
 	pid_t child_pid;
 	int status;
-	char **PATH;
+	char **PATH = NULL;
 	char *DIRE, *CONCAT;
 	struct stat buf;
 
@@ -66,7 +66,7 @@ int main(int ac, char **av, char **env)
 				}
 			}	
 		}
-			free_fun(PATH);
+		free_fun(PATH);	
 	}
 	free(str);
 	str = NULL;
