@@ -14,7 +14,8 @@ int main(int ac, char **av, char **env)
 	pid_t child_pid;
 	int status;
 	char **PATH;
-	char *CONCAT, *DIRE;
+	char *DIRE, *CONCAT;
+	struct stat buf;
 
 	(void)ac;
 	(void)av;
@@ -22,7 +23,7 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		if (isatty(0))
-			printf("$");
+			printf("$ ");
 
 		if (getline(&lineptr, &n, stdin) == -1)
 			break;
@@ -33,12 +34,18 @@ int main(int ac, char **av, char **env)
 			exit(0);
 		}
 		str = split_line(lineptr);
-
+	
 		if (str[0] != NULL)
 		{
-			PATH = get_path(env);
-			DIRE = getDir(PATH, str);
-			CONCAT = concat_str_dir(DIRE, str[0]);	
+			if (stat(str[0], &buf) == -1)
+			{ 	
+				PATH = get_path(env);
+				DIRE = getDir(PATH, str);
+				if (DIRE != NULL)
+					CONCAT = concat_str_dir(DIRE, str[0]);	
+			}
+			else
+				CONCAT = str[0];	
 
 			child_pid = fork();
 			if (child_pid != 0)
