@@ -9,6 +9,9 @@
 void free_fun(char **PATH)
 {
 	int i = 0;
+
+	if (PATH == NULL)
+		return;
 	
 	while(PATH[i] != NULL)
 	{	
