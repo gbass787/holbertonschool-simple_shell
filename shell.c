@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * main - simple shell
- * @ac: unused
- * @av: unused
- * @env: unused
+ * @ac: counter
+ * @av: arguments
+ * @env: enviorment
  * Return: 1
  */
 int main(int ac, char **av, char **env)
@@ -13,6 +13,8 @@ int main(int ac, char **av, char **env)
 	char **str;
 	pid_t child_pid;
 	int status;
+	char **PATH;
+	char *CONCAT, *DIRE;
 
 	(void)ac;
 	(void)av;
@@ -34,6 +36,10 @@ int main(int ac, char **av, char **env)
 
 		if (str[0] != NULL)
 		{
+			PATH = get_path(env);
+			DIRE = getDir(PATH, str);
+			CONCAT = concat_str_dir(DIRE, str[0]);	
+
 			child_pid = fork();
 			if (child_pid != 0)
 			{
@@ -42,7 +48,7 @@ int main(int ac, char **av, char **env)
 			}
 			else
 			{
-				execve(str[0], str, env);
+				execve(CONCAT, str, env);
 				return (0);
 			}
 		}
