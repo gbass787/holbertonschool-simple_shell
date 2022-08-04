@@ -9,6 +9,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+
 char **split_line(char *lineptr);
 
 char *_strcat(char *dest, char *src);
@@ -18,5 +25,8 @@ int _strncmp(char *s1, char *s2, int n);
 int _strcmp(char *s1, char *s2);
 void _print_int(int number);
 int _putchar(char c);
+char *getDir(char **path, char **command);
+char **get_path(char **env);
+char *_strdup(char *str);
 
 #endif

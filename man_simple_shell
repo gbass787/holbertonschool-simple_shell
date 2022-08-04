@@ -1,0 +1,51 @@
+.TH SIMPLE_SHELL  2022-AUG-4
+
+.SH NAME
+simple_shell \- shell terminal in C language
+
+.SH SYNOPSIS
+.B ./hsh
+.TP
+[\fBecho\fR \fIcommand\fR] | ./hsh
+
+.SH DESCRIPTION
+.B simple_shell
+.TP
+This program runs a shell interface using C programming, it will handle regular
+commands with full path, shorten commands such as ls, cd, pwd, and
+others. As well manage arguments added to the different commands.
+
+
+.SH COMMANDS
+.TP
+All commands passed by the user will be executed as a regular shell would. 
+
+.SH OPTIONS
+.TP
+.B ./hsh
+.TP
+Runs the program normaly allowing the user to enter the desired command during the programs run time.
+.TP
+.SH
+BUILT-IN COMMANDS
+.TP
+.IP \fBexit\fR
+Allows the user to exit our shell interface
+.TP
+		See \fBman\fR \fIexit\fR for more options.
+.TP
+.IP \fBenv\fR
+Prints out the whole enviroment.
+.TP
+		See \fBman\fR \fIenv\fR for more options.
+.TP
+.IP \fBclear\fR
+Allows the user to clear the interface
+.TP
+		 See \fBman\fR \fIclear\fR for more options.
+.TP
+.IP \fBhelp\fR
+Displays information about
+
+.SH AUTHORS
+Sara Cruz & Gerardo Bassat
