@@ -10,12 +10,8 @@
 char *concat_str_dir(char *array, char *command)
 {
 	char *new;
-	/*unsigned long len = strlen(array) + strlen(command) + 1;*/
 	char *final;
 
-	/*if (new == NULL)
-		return (NULL);
-	*/
 	new = strcat(array, "/");
 	final = strcat(new, command);
 
@@ -25,7 +21,7 @@ char *concat_str_dir(char *array, char *command)
 /*
 int main(void)
 {
-	char array[] = "/usr /usr/bin /bin";
+	char array[] = "/usr";
 	char command[] = "ls";
 	char *new;
 
