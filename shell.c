@@ -31,6 +31,7 @@ int main(int ac, char **av, char **env)
 		if (_strcmp(lineptr, "exit\n") == 0)
 		{
 			free(lineptr);
+			lineptr = NULL;
 			exit(0);
 		}
 		str = split_line(lineptr);
@@ -52,6 +53,7 @@ int main(int ac, char **av, char **env)
 			{
 				wait(&status);
 				free(str);
+				str = NULL;
 			}
 			else
 			{
@@ -62,11 +64,13 @@ int main(int ac, char **av, char **env)
 					perror("execve");
 					exit(EXIT_FAILURE);
 				}
-			}
+			}	
 		}
 			free_fun(PATH);
 	}
 	free(str);
+	str = NULL;
 	free(lineptr);
+	lineptr = NULL;
 	return (0);
 }
