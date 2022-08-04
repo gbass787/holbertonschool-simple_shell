@@ -34,3 +34,21 @@ char *getDir(char **patharray, char **commandlineArgs)
 
 	return (NULL);
 }
+/*
+int main(void)
+{
+	char *str[]= {};
+	char *command[]= {"ls"};
+	char *path;
+
+	str = get_path(**env);
+
+	path = getDir(str, command);
+
+	printf("str[%s]", str);
+	printf("command[%s]", command);
+	printf("path[%s]", path);	
+
+	return(0);
+}
+*/

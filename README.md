@@ -36,4 +36,5 @@ After receiving a command, **hsh** tokenizes it into words using `" "` as a deli
 If a command is not found, the return status is `127`; if a command is found but is not executable, the return status is 126.
 
 All builtins return zero on success and one or two on incorrect usage (indicated by a corresponding error message).
+![Shell_Flow](https://user-images.githubusercontent.com/105442451/182874614-fd7a33f1-1274-47d6-a8ec-b75b7ba0c542.png)
 
