@@ -15,14 +15,13 @@ char *concat_str_dir(char *array, char *command)
 	new = strcat(array, "/");
 	final = strcat(new, command);
 
-	free(new);
 	return (final);
 }
 
 /*
 int main(void)
 {
-	char array[] = "/usr /usr/bin /bin";
+	char array[] = "/usr";
 	char command[] = "ls";
 	char *new;
 
