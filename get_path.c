@@ -4,7 +4,7 @@
  * and checks if files exist
  *
  * @patharray: array of directories in the path
- * @commandLineArgs: user input
+ * @commandlineArgs: user input
  *
  * Return: directory containing the binary
  */
@@ -23,7 +23,7 @@ char *getDir(char **patharray, char **commandlineArgs)
 
 		while ((binaryFiles = readdir(directory)) != NULL)
 		{
-			if (_strcmp(binaryFiles->d_name, commandLineArgs[0]) == 0)
+			if (_strcmp(binaryFiles->d_name, commandlineArgs[0]) == 0)
 			{
 				closedir(directory);
 				return (patharray[count]);
