@@ -23,7 +23,7 @@ char *getDir(char **patharray, char **commandlineArgs)
 
 		while ((binaryFiles = readdir(directory)) != NULL)
 		{
-			if (_strcmp(binaryFiles->d_name, commandLineArgs[0]) == 0)
+			if (_strcmp(binaryFiles->d_name, commandlineArgs[0]) == 0)
 			{
 				closedir(directory);
 				return (patharray[count]);
@@ -34,3 +34,21 @@ char *getDir(char **patharray, char **commandlineArgs)
 
 	return (NULL);
 }
+/*
+int main(void)
+{
+	char *str[]= {};
+	char *command[]= {"ls"};
+	char *path;
+
+	str = get_path(**env);
+
+	path = getDir(str, command);
+
+	printf("str[%s]", str);
+	printf("command[%s]", command);
+	printf("path[%s]", path);	
+
+	return(0);
+}
+*/
