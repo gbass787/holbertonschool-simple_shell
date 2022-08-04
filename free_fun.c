@@ -13,8 +13,10 @@ void free_fun(char **PATH)
 	while(PATH[i] != NULL)
 	{	
 		free(PATH[i]);
+		PATH[i] = NULL; 
 		i++;
 	}
 
 	free(PATH);
+	PATH = NULL;
 }
