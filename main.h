@@ -8,14 +8,12 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
 #include <dirent.h>
-#include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/wait.h>
 #include <fcntl.h>
 #include <errno.h>
 
+void free_fun(char **PATH);
 char **split_line(char *lineptr);
 char *concat_str_dir(char *array, char *command);
 char *_strcat(char *dest, char *src);
