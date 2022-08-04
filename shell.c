@@ -57,14 +57,14 @@ int main(int ac, char **av, char **env)
 			{
 				if(execve(CONCAT, str, env))
 				{
-					free_fun(PATH);
+					if (stat(str[0], &buf) == -1)
+						free_fun(PATH);
 					perror("execve");
 					exit(EXIT_FAILURE);
 				}
-				return (0);
 			}
-		} 
-		free_fun(PATH);
+		}
+			free_fun(PATH);
 	}
 	free(str);
 	free(lineptr);
