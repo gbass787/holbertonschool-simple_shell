@@ -12,7 +12,7 @@ int main(int ac, char **av, char **env)
 	size_t n = 0;
 	char **str;
 	pid_t child_pid;
-	int status, i;
+	int status;
 	char **PATH;
 	char *DIRE, *CONCAT;
 	struct stat buf;
@@ -57,19 +57,14 @@ int main(int ac, char **av, char **env)
 			{
 				if(execve(CONCAT, str, env))
 				{
+					free_fun(PATH);
 					perror("execve");
 					exit(EXIT_FAILURE);
 				}
 				return (0);
 			}
 		} 
-		i = 0;
-		while(PATH[i] != NULL)
-		{	
-			free(PATH[i]);
-			i++;
-		}
-		free(PATH);
+		free_fun(PATH);
 	}
 	free(str);
 	free(lineptr);
