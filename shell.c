@@ -55,7 +55,11 @@ int main(int ac, char **av, char **env)
 			}
 			else
 			{
-				execve(CONCAT, str, env);
+				if(execve(CONCAT, str, env))
+				{
+					perror("execve");
+					exit(EXIT_FAILURE);
+				}
 				return (0);
 			}
 		} 
