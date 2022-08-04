@@ -4,15 +4,16 @@
  * @ac: counter
  * @av: arguments
  * @env: enviorment
- * Return: 0
+ * Return: 1
  */
 int main(int ac, char **av, char **env)
 {
 	char *lineptr = NULL;
 	size_t n = 0;
-	char **str, **PATH;
+	char **str;
 	pid_t child_pid;
 	int status;
+	char **PATH;
 	char *CONCAT, *DIRE;
 
 	(void)ac;
@@ -32,6 +33,7 @@ int main(int ac, char **av, char **env)
 			exit(0);
 		}
 		str = split_line(lineptr);
+
 		if (str[0] != NULL)
 		{
 			PATH = get_path(env);
