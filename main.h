@@ -13,6 +13,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
+extern char **environ;
+void print_env(void);
+
 void free_fun(char **PATH);
 char **split_line(char *lineptr);
 char *concat_str_dir(char *array, char *command);
