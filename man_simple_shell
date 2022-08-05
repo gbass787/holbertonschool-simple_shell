@@ -18,7 +18,7 @@ others. As well manage arguments added to the different commands.
 
 .SH COMMANDS
 .TP
-All commands passed by the user will be executed as a regular shell would. 
+All commands passed by the user will be executed as a regular shell would.
 
 .SH OPTIONS
 .TP
@@ -46,6 +46,7 @@ Allows the user to clear the interface
 .TP
 .IP \fBhelp\fR
 Displays information about
-
+.SH RETURN
+Return 0 on success
 .SH AUTHORS
-Sara Cruz & Gerardo Bassat
+.B Sara Cruz & Gerardo Bassat

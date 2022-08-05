@@ -35,18 +35,18 @@ int main(int ac, char **av, char **env)
 			exit(0);
 		}
 		str = split_line(lineptr);
-	
+
 		if (str[0] != NULL)
 		{
 			if (stat(str[0], &buf) == -1)
-			{ 	
+			{
 				PATH = get_path(env);
 				DIRE = getDir(PATH, str);
 				if (DIRE != NULL)
-					CONCAT = concat_str_dir(DIRE, str[0]);	
+					CONCAT = concat_str_dir(DIRE, str[0]);
 			}
 			else
-				CONCAT = str[0];	
+				CONCAT = str[0];
 
 			child_pid = fork();
 			if (child_pid != 0)
@@ -57,16 +57,16 @@ int main(int ac, char **av, char **env)
 			}
 			else
 			{
-				if(execve(CONCAT, str, env))
+				if (execve(CONCAT, str, env))
 				{
 					if (stat(str[0], &buf) == -1)
 						free_fun(PATH);
 					perror("execve");
 					exit(EXIT_FAILURE);
 				}
-			}	
+			}
 		}
-		free_fun(PATH);	
+		free_fun(PATH);
 	}
 	free(str);
 	str = NULL;

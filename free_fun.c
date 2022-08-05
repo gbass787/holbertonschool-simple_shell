@@ -1,10 +1,9 @@
 #include "main.h"
-
-/*free_fun - free PATH
-*@PATH - PATH
-*
-*
-*/
+/*
+ * free_fun - free PATH
+ *
+ * @PATH - PATH
+ */
 
 void free_fun(char **PATH)
 {
@@ -12,11 +11,11 @@ void free_fun(char **PATH)
 
 	if (PATH == NULL)
 		return;
-	
-	while(PATH[i] != NULL)
-	{	
+
+	while (PATH[i] != NULL)
+	{
 		free(PATH[i]);
-		PATH[i] = NULL; 
+		PATH[i] = NULL;
 		i++;
 	}
 

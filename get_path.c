@@ -44,7 +44,7 @@ int main(void)
 	path = getDir(str, command);
 	printf("str[%s]", str);
 	printf("command[%s]", command);
-	printf("path[%s]", path);	
+	printf("path[%s]", path);
 	return(0);
 }
 */
