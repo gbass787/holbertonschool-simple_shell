@@ -16,7 +16,7 @@ The way to use it in interactive mode is to type the command:
 
 This will display another shell prompt beginning with `($)`
 
-You will now be inside of your shell.
+You will now be inside of our simple shell.
 
 ## PATH:
 
@@ -24,17 +24,44 @@ A colon-separated list of directories in which the shell looks for commands. A n
 
 ## Command Execution:
 
-After receiving a command, **hsh** tokenizes it into words using `" "` as a delimiter. The first word is considered the command and all remaining words are considered arguments to that command. **hsh** then proceeds with the following actions:
-1. If the first character of the command is neither a slash (`\`) nor dot (`.`), the shell searches for it in the list of shell builtins. If there exists a builtin by that name, the builtin is invoked.
-2. If the first character of the command is none of a slash (`\`), dot (`.`), nor builtin, **hsh** searches each element of the **PATH** environmental variable for a directory containing an executable file by that name.
-3. If the first character of the command is a slash (`\`) or dot (`.`) or either of the above searches was successful, the shell executes the named program with any remaining given arguments in a separate execution environment.
+After receiving a command, the shell tokenizes it into words using `" "` as a delimiter. The first word is considered the command and all remaining words are considered arguments to that command. **hsh** then proceeds with the following actions:
+1. If the first character of the command is neither of the delimiters, the shell searches for it in the list of shell builtins. If there exists a builtin by that name, the builtin is invoked.
+2. If the first character of the command is none of the delimiters, nor builtin, it searches each element of the **PATH** environmental variable for a directory containing an executable file by that name.
+3. If the first character of the command is a delimiter or either of the above searches was successful, it will display error and the prompt.
 
-## Exit Status:
+## Return
 
-**hsh** returns the exit status of the last command executed, with zero indicating success and non-zero indicating failure.
+The simple shell returns 0 when sucsess.
 
-If a command is not found, the return status is `127`; if a command is found but is not executable, the return status is 126.
+## Examples
 
-All builtins return zero on success and one or two on incorrect usage (indicated by a corresponding error message).
+Getting the promt and typing commands:
+
+```sh
+vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ ./shs
+```
+```sh
+#cisfun$ ls
+AUTHORS    calloc.c	  delete_memory.c  getenv.c  main.c		 read_line.c  split_line.c  strcmp.c  strlen.c
+README.md  create_node.c  execute.c	      header.h  man_1_simple_shell  shs	            strcat.c	          strcpy.c
+#cisfun$
+```
+
+
+And #cisfun$ run a command in non-interactive mode, doing:
+```sh
+$ echo "echo 'what the shell?'" | ./hsh
+'what the shell?'
+$
+```
+
+## FLOWCHART:
+
 ![Shell_Flow](https://user-images.githubusercontent.com/105442451/182874614-fd7a33f1-1274-47d6-a8ec-b75b7ba0c542.png)
 
+### Authors
+
+Sara Cruz
+email: 5012@holbertonschool.com
+Gerardo Bassat
+email: 4551@holbertonschool.com
