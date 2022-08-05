@@ -41,14 +41,14 @@ Getting the promt and typing commands:
 vagrant@vagrant-ubuntu-trusty-64:~/simple_shell$ ./shs
 ```
 ```sh
-#cisfun$ ls
+#$ ls
 AUTHORS    calloc.c	  delete_memory.c  getenv.c  main.c		 read_line.c  split_line.c  strcmp.c  strlen.c
 README.md  create_node.c  execute.c	      header.h  man_1_simple_shell  shs	            strcat.c	          strcpy.c
-#cisfun$
+#$
 ```
 
 
-And #cisfun$ run a command in non-interactive mode, doing:
+And #$ run a command in non-interactive mode, doing:
 ```sh
 $ echo "echo 'what the shell?'" | ./hsh
 'what the shell?'
