@@ -26,7 +26,5 @@ int _putchar(char c);
 char *getDir(char **path, char **command);
 char **get_path(char **env);
 char *_strdup(char *str);
-int _putchar(char c);
-int get_env(char *envp[]);
 
 #endif
