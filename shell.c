@@ -4,19 +4,15 @@
  * @ac: counter
  * @av: arguments
  * @env: enviorment
- * Return: 1
+ * Return: 0
  */
 int main(int ac, char **av, char **env)
 {
-	char *lineptr = NULL;
+	char *lineptr = NULL, **PATH = NULL, *DIRE, *CONCAT, **str;
 	size_t n = 0;
-	char **str;
 	pid_t child_pid;
 	int status;
-	char **PATH = NULL;
-	char *DIRE, *CONCAT;
 	struct stat buf;
-
 	(void)ac;
 	(void)av;
 
@@ -24,18 +20,22 @@ int main(int ac, char **av, char **env)
 	{
 		if (isatty(0))
 			printf("$ ");
-
 		if (getline(&lineptr, &n, stdin) == -1)
 			break;
-
 		if (_strcmp(lineptr, "exit\n") == 0)
 		{
 			free(lineptr);
 			lineptr = NULL;
 			exit(0);
 		}
+		if (_strcmp(lineptr, "env\n") == 0)
+		{
+			free(lineptr);
+			lineptr = NULL;
+			print_env();
+			exit(0);
+		}
 		str = split_line(lineptr);
-
 		if (str[0] != NULL)
 		{
 			if (stat(str[0], &buf) == -1)
