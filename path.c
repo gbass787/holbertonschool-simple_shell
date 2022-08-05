@@ -11,7 +11,7 @@ char **get_path(char **env)
 {
 	char **patharray, *temp, *hold, *path = "PATH=";
 	const char *colon = ": =";
-	int count, count2, inputSize = 20, sizearray = 0;
+	int count, count2, inputSize = 50, sizearray = 0;
 
 	patharray = malloc(inputSize * sizeof(char *));
 	if (patharray == NULL)
@@ -88,5 +88,3 @@ char *_strdup(char *str)
 
 	return (copiedString);
 }
-
-
