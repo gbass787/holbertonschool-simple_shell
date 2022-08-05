@@ -43,9 +43,6 @@ Prints out the whole enviroment.
 Allows the user to clear the interface
 .TP
 		 See \fBman\fR \fIclear\fR for more options.
-.TP
-.IP \fBhelp\fR
-Displays information about
 .SH RETURN
 Return 0 on success
 .SH AUTHORS
